@@ -1,0 +1,192 @@
+export const projects = [
+  {
+    id: 1,
+    name: "Learnova LMS",
+    initials: "LMS",
+    bg: "linear-gradient(135deg, #0d1b3e 0%, #0a1628 40%, #132040 100%)",
+    tags: ["spring", "react"],
+    tech: ["Spring Boot", "React.js", "PostgreSQL", "Docker", "JWT", "OAuth", "Tailwind CSS"],
+    desc: "A scalable, role-based Learning Management System with secure authentication, real-time chat, automated grading, and course analytics.",
+    features: [
+      "Role-based access control for Students, Instructors, and Admins",
+      "Secure JWT/OAuth authentication with full session management",
+      "Automated grading with interactive time-based quizzes",
+      "Layered backend architecture using DTOs and Service patterns",
+      "Real-time chat functionality for course discussions",
+      "Production deployment on Docker, Vercel, and Render",
+    ],
+    live: "https://lnkd.in/dYdmAtRD",
+    github: "https://github.com/soban-iftikhar/Learnova-LMS",
+  },
+  {
+    id: 2,
+    name: "HostelMate",
+    initials: "HM",
+    bg: "linear-gradient(135deg, #130a2e 0%, #1a0f3d 40%, #231256 100%)",
+    tags: ["mern", "react"],
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Vercel", "Render"],
+    desc: "A community platform where hostel residents exchange favors using a Karma Points system — request help, earn points, build community.",
+    features: [
+      "Point-based favor exchange economy for hostel residents",
+      "JWT-secured user sessions and profile management",
+      "Complex MongoDB relationships for favor requests and profiles",
+      "Full MERN stack deployed on Vercel and Render",
+      "Real-time request tracking and notification system",
+      "Mobile-responsive React UI with a clean UX flow",
+    ],
+    live: "https://hostel-mate-rho.vercel.app",
+    github: "https://github.com/soban-iftikhar/HostelMate",
+  },
+  {
+    id: 3,
+    name: "Swaari",
+    initials: "SW",
+    bg: "linear-gradient(135deg, #071528 0%, #0a1f3a 40%, #0d2845 100%)",
+    tags: ["mern", "react"],
+    tech: ["Node.js", "Express.js", "React.js", "MongoDB", "Socket.IO", "Google Maps API", "JWT"],
+    desc: "A full-stack ride-hailing platform with real-time driver matching, live GPS tracking, and a complete trip lifecycle from booking to drop-off.",
+    features: [
+      "Real-time driver matching using Socket.IO and geolocation",
+      "Live GPS tracking with Google Maps API integration",
+      "Complete trip lifecycle: booking, tracking, and completion",
+      "Scalable backend handling geolocation and nearest-driver allocation",
+      "Responsive React frontend with interactive map interface",
+    ],
+    live: null,
+    github: "https://github.com/soban-iftikhar/Swaari",
+  },
+  {
+    id: 4,
+    name: "NewsBuzz",
+    initials: "NB",
+    bg: "linear-gradient(135deg, #0f0f22 0%, #14143a 40%, #1c1c50 100%)",
+    tags: ["python", "react"],
+    tech: ["React.js", "FastAPI", "Python", "PostgreSQL", "JWT", "News API"],
+    desc: "A full-stack news platform pulling real-time articles from external APIs, with secure JWT auth, search, and a personal favorites system.",
+    features: [
+      "Real-time news fetching from external News API sources",
+      "FastAPI backend with JWT authentication",
+      "Dynamic content rendering with search and category filters",
+      "User favorites management and personalized feed",
+      "Clean React frontend with a responsive article layout",
+      "RESTful API architecture with proper error handling",
+    ],
+    live: null,
+    github: "https://github.com/soban-iftikhar/BuzzNews",
+  },
+  {
+    id: 5,
+    name: "Wordle Clone",
+    initials: "WD",
+    bg: "linear-gradient(135deg, #0a1f0a 0%, #0e280e 40%, #142e14 100%)",
+    tags: ["react", "game"],
+    tech: ["React.js", "CSS", "Vercel"],
+    desc: "A fully playable Wordle clone built in React — guess the 5-letter word in 6 tries with color-coded tile feedback and an on-screen keyboard.",
+    features: [
+      "Complete Wordle game logic with win/loss detection",
+      "Color-coded tile feedback — correct, misplaced, and wrong",
+      "Animated on-screen keyboard with per-letter state tracking",
+      "Word validation against a curated dictionary",
+      "Responsive layout for both desktop and mobile",
+      "Deployed and live on Vercel",
+    ],
+    live: "https://wordle-eight-zeta.vercel.app/",
+    github: "https://github.com/soban-iftikhar/Frontend-projects",
+  },
+  {
+    id: 6,
+    name: "Tic-Tac-Toe AI",
+    initials: "TTT",
+    bg: "linear-gradient(135deg, #1f0a0a 0%, #2d0e0e 40%, #3a1414 100%)",
+    tags: ["react", "game"],
+    tech: ["React.js", "CSS", "Minimax Algorithm", "Vercel"],
+    desc: "Tic-Tac-Toe with a real AI opponent powered by the Minimax algorithm. Three difficulty levels — Easy, Medium, and Hard (unbeatable).",
+    features: [
+      "Player vs Player and Player vs Computer modes",
+      "Three AI difficulty levels: Easy, Medium, and Hard",
+      "Hard mode powered by Minimax — genuinely unbeatable",
+      "Animated winning line and live score tracking",
+      "Clean state management using React hooks",
+      "Deployed live on Vercel",
+    ],
+    live: "https://tic-tac-toe-beta-silk.vercel.app/",
+    github: "https://github.com/soban-iftikhar/Frontend-projects",
+  },
+];
+
+export const skills = [
+  {
+    label: "Languages",
+    items: ["Java", "JavaScript", "Python", "HTML", "CSS", "SQL"],
+  },
+  {
+    label: "Backend",
+    items: ["Spring Boot", "Node.js", "Express.js", "FastAPI", "REST APIs", "Socket.IO", "JWT / OAuth"],
+  },
+  {
+    label: "Frontend",
+    items: ["React.js", "Tailwind CSS", "Vite", "Context API", "React Hooks"],
+  },
+  {
+    label: "Databases",
+    items: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"],
+  },
+  {
+    label: "Tools & DevOps",
+    items: ["Git", "GitHub", "Docker", "Postman", "Vercel", "Render"],
+  },
+  {
+    label: "Security & Auth",
+    items: ["JWT Auth", "RBAC", "OAuth 2.0", "Secure APIs"],
+  },
+];
+
+export const certifications = [
+  {
+    title: "JavaScript Essentials 1",
+    issuer: "Cisco Networking Academy",
+    date: "Feb 15, 2025",
+    badge: "CISCO",
+    badgeType: "cisco",
+    img: "/certificates/c1.jpg",
+  },
+  {
+    title: "JavaScript Essentials 2",
+    issuer: "Cisco Networking Academy",
+    date: "Mar 6, 2025",
+    badge: "CISCO",
+    badgeType: "cisco",
+    img: "/certificates/c2.jpg",
+  },
+  {
+    title: "Intro to SQL",
+    issuer: "Kaggle Learn",
+    date: "May 7, 2025",
+    badge: "KGL",
+    badgeType: "kaggle",
+    img: "/certificates/c3.jpg",
+  },
+];
+
+export const marqueeItems = [
+  "Spring Boot", "React.js", "Node.js", "MongoDB", "PostgreSQL",
+  "Docker", "JWT Auth", "REST APIs", "Socket.IO", "Tailwind CSS",
+  "Express.js", "FastAPI", "GitHub", "Vercel", "Full Stack",
+];
+
+export const navLinks = [
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const filterOptions = [
+  { label: "All", value: "all" },
+  { label: "React", value: "react" },
+  { label: "MERN", value: "mern" },
+  { label: "Spring Boot", value: "spring" },
+  { label: "Python", value: "python" },
+  { label: "Games", value: "game" },
+];
