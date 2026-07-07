@@ -2,24 +2,22 @@ import { useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
 import ProjectModal from "./ProjectModal";
+import ElectricBorder from "./ui/ElectricBorder";
 import { projects, filterOptions } from "../data";
 
 function ProjectCard({ project, onOpen, delay = 0 }) {
   const ref = useScrollReveal();
 
-  return (
+  const cardContent = (
     <div
-      ref={ref}
-      className="reveal group bg-[#12121a] border border-[#1c1c2a] rounded-[20px] overflow-hidden 
+      className="group bg-[#12121a] overflow-hidden 
                  flex flex-col cursor-pointer relative transition-all duration-[400ms] 
-                 hover:border-[#7c6af7]/30 hover:-translate-y-1.5 
-                 hover:shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
-      style={{ animationDelay: `${delay}ms` }}
+                 hover:-translate-y-1.5 h-full"
       onClick={() => onOpen(project)}
     >
       {/* Hover overlay shimmer */}
       <div
-        className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 
                    transition-opacity duration-500 pointer-events-none z-10"
         style={{
           background:
@@ -109,6 +107,25 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
           </button>
         </div>
       </div>
+    </div>
+  );
+
+  return (
+    <div
+      ref={ref}
+      className="reveal"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <ElectricBorder
+        color="#7df9ff"
+        speed={0.8}
+        chaos={0.08}
+        thickness={1.5}
+        borderRadius={20}
+        style={{ borderRadius: 20 }}
+      >
+        {cardContent}
+      </ElectricBorder>
     </div>
   );
 }

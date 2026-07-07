@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
+import ElectricBorder from "./ui/ElectricBorder";
 import { certifications } from "../data";
 
 function CertModal({ cert, onClose }) {
@@ -18,7 +20,7 @@ function CertModal({ cert, onClose }) {
 
   if (!cert) return null;
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[1001] flex items-center justify-center p-4 sm:p-8"
       style={{ animation: "fadeIn 0.2s ease" }}
@@ -61,7 +63,8 @@ function CertModal({ cert, onClose }) {
           to { transform: translateY(0); opacity: 1; }
         }
       `}</style>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -73,14 +76,11 @@ function CertCard({ cert, onOpen, delay = 0 }) {
       ? "bg-[#049fd9]"
       : "bg-[#20beff]";
 
-  return (
+  const cardContent = (
     <div
-      ref={ref}
-      className="reveal group relative bg-[#12121a] border border-[#1c1c2a] rounded-[18px] 
-                 p-6 flex items-start gap-5 cursor-pointer overflow-hidden 
-                 transition-all duration-300 hover:border-[#7c6af7]/30 
-                 hover:-translate-y-1.5 hover:shadow-[0_20px_55px_rgba(0,0,0,0.4)]"
-      style={{ animationDelay: `${delay}ms` }}
+      className="group relative overflow-hidden 
+                 transition-all duration-300 
+                 hover:-translate-y-1.5 flex items-start gap-5 p-6"
       onClick={() => onOpen(cert)}
     >
       {/* Background glow on hover */}
@@ -118,6 +118,25 @@ function CertCard({ cert, onOpen, delay = 0 }) {
       >
         ↗
       </span>
+    </div>
+  );
+
+  return (
+    <div
+      ref={ref}
+      className="reveal"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <ElectricBorder
+        color="#06b6d4"
+        speed={0.7}
+        chaos={0.1}
+        thickness={1.2}
+        borderRadius={18}
+        style={{ borderRadius: 18 }}
+      >
+        {cardContent}
+      </ElectricBorder>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function ProjectModal({ project, onClose }) {
 
   if (!project) return null;
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[1000] flex items-center justify-center p-4 sm:p-8"
       style={{ animation: "fadeIn 0.2s ease" }}
@@ -134,6 +135,7 @@ export default function ProjectModal({ project, onClose }) {
           to { transform: translateY(0); opacity: 1; }
         }
       `}</style>
-    </div>
+    </div>,
+    document.body
   );
 }

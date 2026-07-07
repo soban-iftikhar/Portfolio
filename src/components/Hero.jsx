@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import { useCounterAnimation } from "../hooks/useScrollReveal";
+import LightRays from "./backgrounds/LightRays";
 
 function StatCounter({ target, suffix = "", label }) {
   const numRef = useCounterAnimation(target);
@@ -16,19 +16,6 @@ function StatCounter({ target, suffix = "", label }) {
 }
 
 export default function Hero() {
-  const cursorRef = useRef(null);
-
-  useEffect(() => {
-    const move = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + "px";
-        cursorRef.current.style.top = e.clientY + "px";
-      }
-    };
-    window.addEventListener("mousemove", move, { passive: true });
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
-
   const scrollTo = (id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -38,15 +25,20 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden"
     >
-      {/* Cursor glow */}
-      <div
-        ref={cursorRef}
-        className="fixed pointer-events-none z-0 w-[500px] h-[500px] rounded-full -translate-x-1/2 -translate-y-1/2"
-        style={{
-          background: "radial-gradient(circle, rgba(124,106,247,0.055) 0%, transparent 70%)",
-          transition: "left 0.08s linear, top 0.08s linear",
-        }}
-      />
+      {/* LightRays background — followMouse handles cursor interaction now, no separate glow needed */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#7c6af7"
+          raysSpeed={1}
+          lightSpread={1}
+          rayLength={2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          fadeDistance={1.0}
+          saturation={1.0}
+        />
+      </div>
 
       {/* Background orbs */}
       <div
@@ -104,13 +96,13 @@ export default function Hero() {
 
           {/* Role */}
           <p className="font-mono text-sm text-[#64647e] tracking-[0.04em] mb-6">
-            Full Stack Developer &nbsp;&middot;&nbsp; Islamabad, Pakistan
+            Software Engineer &nbsp;&middot;&nbsp; Islamabad, Pakistan
           </p>
 
           {/* Description */}
           <p className="text-[#8888a8] text-[1.02rem] leading-[1.85] max-w-[480px] mb-10 font-light">
             I build complete web products — robust backends, clean APIs, and
-            frontends that feel right to use. Java, MERN, and everything in
+            frontends that feel right to use. Java, MERN, Next.js and everything in
             between.
           </p>
 
@@ -148,8 +140,8 @@ export default function Hero() {
 
           {/* Stats */}
           <div className="flex flex-wrap gap-10 pt-8 border-t border-[#1c1c2a]">
-            <StatCounter target={6} suffix="+" label="Projects Shipped" />
-            <StatCounter target={2} suffix="+" label="Years Building" />
+            <StatCounter target={10} suffix="+" label="Projects Shipped" />
+            <StatCounter target={3} suffix="+" label="Years Building" />
             <StatCounter target={3} suffix="" label="Certifications" />
           </div>
         </div>
@@ -184,7 +176,7 @@ export default function Hero() {
                          px-4 py-2.5 text-xs text-[#64647e] whitespace-nowrap hidden lg:block"
               style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.5)" }}
             >
-              <strong className="block text-white text-sm font-semibold mb-0.5">MERN & Spring Boot</strong>
+              <strong className="block text-white text-sm font-semibold mb-0.5">MERN & Next.js</strong>
               Full Stack Developer
             </div>
           </div>

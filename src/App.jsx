@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GridBackground from "./components/GridBackground";
+import LightRays from "./components/backgrounds/LightRays";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
@@ -15,8 +16,21 @@ function Portfolio() {
   return (
     <div className="min-h-screen bg-[#07070d] text-[#e2e2ee] overflow-x-hidden">
       <GridBackground />
-      <Navbar />
-      <main>
+      <div style={{ position: 'fixed', inset: 0, height: '100vh', width: '100vw', zIndex: 0, pointerEvents: 'none' }}>
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#c084fc"
+          raysSpeed={0.8}
+          lightSpread={0.8}
+          rayLength={2.5}
+          followMouse={false}
+          fadeDistance={1.2}
+          saturation={1.4}
+        />
+      </div>
+      <div style={{ position: 'relative', zIndex: 10 }}>
+        <Navbar />
+        <main>
         <Hero />
         <Marquee />
         <Skills />
@@ -25,8 +39,9 @@ function Portfolio() {
         <Certifications />
         <Education />
         <Contact />
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
