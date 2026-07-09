@@ -1,23 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 export default function ProjectModal({ project, onClose }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  useEffect(() => {
+    setImgFailed(false);
+  }, [project]);
+
   useEffect(() => {
     if (project) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [project]);
 
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
   if (!project) return null;
+
+  const showImage = project.img && !imgFailed;
 
   return createPortal(
     <div
@@ -32,27 +44,55 @@ export default function ProjectModal({ project, onClose }) {
 
       {/* Modal box */}
       <div
-        className="relative bg-[#12121a] border border-[#7c6af7]/22 rounded-3xl w-full max-w-2xl 
+        className="relative bg-[#12121a] border border-[#7c6af7]/22 rounded-3xl w-full max-w-2xl
                    max-h-[90vh] overflow-y-auto z-10 scrollbar-thin"
         style={{ animation: "slideUp 0.3s cubic-bezier(0.4,0,0.2,1)" }}
       >
         {/* Header */}
         <div
           className="h-48 flex items-center justify-center relative border-b border-[#1c1c2a] overflow-hidden"
-          style={{ background: project.bg }}
+          style={!showImage ? { background: project.bg } : {}}
         >
-          <span
-            className="font-display font-extrabold text-white/10 select-none tracking-[-0.04em]"
-            style={{ fontSize: "clamp(3rem, 8vw, 5rem)" }}
-          >
-            {project.initials}
-          </span>
+          {/* Image background */}
+          {showImage && (
+            <>
+              <img
+                src={project.img}
+                alt={project.name}
+                onError={() => setImgFailed(true)}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Dark overlay so text is readable */}
+              <div className="absolute inset-0 bg-black/55" />
+            </>
+          )}
 
+          {/* Initials — shown on gradient fallback only */}
+          {!showImage && (
+            <span
+              className="font-display font-extrabold text-white/10 select-none tracking-[-0.04em]"
+              style={{ fontSize: "clamp(3rem, 8vw, 5rem)" }}
+            >
+              {project.initials}
+            </span>
+          )}
+
+          {/* Project name overlay on image */}
+          {showImage && (
+            <span
+              className="relative z-10 font-display font-extrabold text-white select-none tracking-[-0.04em] drop-shadow-lg"
+              style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)" }}
+            >
+              {project.name}
+            </span>
+          )}
+
+          {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#1a1a28] border border-[#1c1c2a] 
-                       flex items-center justify-center text-[#64647e] text-sm transition-all duration-200 
-                       hover:bg-[#7c6af7] hover:text-white hover:border-[#7c6af7]"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#1a1a28] border border-[#1c1c2a]
+                       flex items-center justify-center text-[#64647e] text-sm transition-all duration-200
+                       hover:bg-[#7c6af7] hover:text-white hover:border-[#7c6af7] z-20"
             aria-label="Close"
           >
             ✕
@@ -88,7 +128,7 @@ export default function ProjectModal({ project, onClose }) {
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="font-mono text-[11px] px-3 py-1.5 rounded-md text-[#a78bfa] 
+                className="font-mono text-[11px] px-3 py-1.5 rounded-md text-[#a78bfa]
                            bg-[rgba(124,106,247,0.08)] border border-[#7c6af7]/20"
               >
                 {t}
@@ -96,7 +136,7 @@ export default function ProjectModal({ project, onClose }) {
             ))}
           </div>
 
-          <div className="flex gap-3 flex-wrap">
+         <div className="flex gap-3 flex-wrap">
             {project.live && (
               <a
                 href={project.live}
