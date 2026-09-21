@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
 import ProjectModal from "./ProjectModal";
-import ElectricBorder from "./ui/ElectricBorder";
 import { projects, filterOptions } from "../data";
 
 function ProjectCard({ project, onOpen, delay = 0 }) {
@@ -10,9 +9,9 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
 
   const cardContent = (
     <div
-      className="group bg-[#12121a] overflow-hidden 
-                 flex flex-col cursor-pointer relative transition-all duration-[400ms] 
-                 hover:-translate-y-1.5 h-full"
+      className="group bg-card overflow-hidden rounded-2xl
+                 flex flex-col cursor-pointer relative transition-all duration-[500ms] 
+                 hover:-translate-y-2 h-full border border-border hover:shadow-2xl hover:shadow-accent/20"
       onClick={() => onOpen(project)}
     >
       {/* Hover overlay shimmer */}
@@ -21,28 +20,26 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
                    transition-opacity duration-500 pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(135deg, rgba(124,106,247,0.04) 0%, transparent 60%)",
+            "linear-gradient(135deg, var(--color-accent) 0%, transparent 40%)",
+          opacity: 0.05
         }}
       />
 
-      {/* Thumbnail */}
+      {/* Top graphic area */}
       <div
-        className="h-44 flex items-center justify-center relative overflow-hidden"
-        style={{ background: project.bg }}
+        className="h-[180px] w-full relative flex flex-col items-center justify-center overflow-hidden"
+        style={{ background: "linear-gradient(135deg, var(--color-surface) 0%, var(--color-subtle) 100%)" }}
       >
-        <span
-          className="font-display font-extrabold text-white/10 select-none tracking-[-0.045em] 
-                     transition-all duration-500 group-hover:scale-110 group-hover:text-white/15"
-          style={{ fontSize: "clamp(2.5rem, 6vw, 4rem)" }}
-        >
-          {project.initials}
-        </span>
-        <div
-          className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-          style={{
-            background: "linear-gradient(to bottom, transparent, #12121a)",
-          }}
-        />
+        <div className="absolute inset-0 flex items-center justify-center opacity-30">
+          <span className="font-display font-extrabold text-muted/30 select-none tracking-[-0.045em] 
+                         transition-all duration-700 group-hover:scale-125 group-hover:text-muted/40"
+                style={{ fontSize: "clamp(5rem, 8vw, 7rem)" }}>
+            {project.initials}
+          </span>
+        </div>
+
+        {/* Gradient overlay for blending into card body */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-card to-transparent z-20 pointer-events-none" />
       </div>
 
       {/* Body */}
@@ -52,36 +49,36 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
           {project.tech.slice(0, 3).map((t) => (
             <span
               key={t}
-              className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#1a1a28] 
-                         border border-[#1c1c2a] text-[#a78bfa] tracking-[0.04em]"
+              className="font-mono text-[10px] px-2 py-0.5 rounded bg-subtle 
+                         border border-border text-accent tracking-[0.04em]"
             >
               {t}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#1a1a28] border border-[#1c1c2a] text-[#64647e]">
+            <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-subtle border border-border text-muted">
               +{project.tech.length - 3} more
             </span>
           )}
         </div>
 
-        <h3 className="font-display font-bold text-white text-[1.18rem] tracking-[-0.015em] mb-2">
+        <h3 className="font-display font-bold text-text text-[1.25rem] tracking-[-0.015em] mb-2">
           {project.name}
         </h3>
-        <p className="text-[#64647e] text-[13px] leading-[1.75] flex-1 mb-5">
+        <p className="text-muted text-[13px] leading-[1.75] flex-1 mb-5">
           {project.desc}
         </p>
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-[#1c1c2a]">
+        <div className="flex items-center justify-between pt-4 border-t border-border">
           <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
             {project.live && (
               <a
                 href={project.live}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-[#1a1a28] border border-[#1c1c2a] 
-                           text-[#64647e] transition-all duration-200 hover:text-[#a78bfa] hover:border-[#7c6af7]"
+                className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-subtle border border-border 
+                           text-muted transition-all duration-200 hover:text-accent hover:border-accent"
               >
                 Live
               </a>
@@ -91,15 +88,15 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-[#1a1a28] border border-[#1c1c2a] 
-                           text-[#64647e] transition-all duration-200 hover:text-[#a78bfa] hover:border-[#7c6af7]"
+                className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-subtle border border-border 
+                           text-muted transition-all duration-200 hover:text-accent hover:border-accent"
               >
                 Code
               </a>
             )}
           </div>
           <button
-            className="text-[12px] font-semibold text-[#a78bfa] bg-none border-none cursor-pointer 
+            className="text-[12px] font-semibold text-accent bg-none border-none cursor-pointer 
                        transition-all duration-200 hover:tracking-wide"
             onClick={() => onOpen(project)}
           >
@@ -116,16 +113,7 @@ function ProjectCard({ project, onOpen, delay = 0 }) {
       className="reveal"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <ElectricBorder
-        color="#7df9ff"
-        speed={0.8}
-        chaos={0.08}
-        thickness={1.5}
-        borderRadius={20}
-        style={{ borderRadius: 20 }}
-      >
-        {cardContent}
-      </ElectricBorder>
+      {cardContent}
     </div>
   );
 }
@@ -139,7 +127,7 @@ export default function Projects() {
     : projects.filter((p) => p.tags.includes(filter));
 
   return (
-    <section id="projects" className="py-24 px-6 relative z-10 bg-[#07070d]">
+    <section id="projects" className="py-24 px-6 relative z-10 bg-bg">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Selected Work"
@@ -156,8 +144,8 @@ export default function Projects() {
               className={`font-mono text-[11px] px-4 py-1.5 rounded-full border tracking-[0.04em] 
                          transition-all duration-200 ${
                            filter === opt.value
-                             ? "bg-[#7c6af7] border-[#7c6af7] text-white shadow-[0_2px_16px_rgba(124,106,247,0.35)]"
-                             : "bg-[#12121a] border-[#1c1c2a] text-[#64647e] hover:bg-[#7c6af7] hover:border-[#7c6af7] hover:text-white"
+                             ? "bg-accent border-accent text-white shadow-md"
+                             : "bg-surface border-border text-muted hover:bg-accent hover:border-accent hover:text-white"
                          }`}
             >
               {opt.label}
@@ -166,7 +154,7 @@ export default function Projects() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((p, i) => (
             <ProjectCard
               key={p.id}

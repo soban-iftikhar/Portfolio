@@ -50,7 +50,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 text-center relative z-10 bg-[#07070d]">
+    <section id="contact" className="py-24 px-6 text-center relative z-10 bg-bg">
       {/* Subtle radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -73,9 +73,9 @@ export default function Contact() {
         <div ref={ref2} className="reveal">
           <a
             href="mailto:sobaniftikhar1098@gmail.com"
-            className="inline-block font-display font-bold text-white border-b-2 border-[#7c6af7] 
+            className="inline-block font-display font-bold text-text border-b-2 border-accent 
                        pb-1 my-8 tracking-[-0.02em] transition-all duration-200 
-                       hover:text-[#a78bfa] hover:border-[#a78bfa]"
+                       hover:text-accent2 hover:border-[var(--color-accent2)]"
             style={{ fontSize: "clamp(1.2rem, 3vw, 1.8rem)" }}
           >
             sobaniftikhar1098@gmail.com
@@ -89,9 +89,9 @@ export default function Contact() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noreferrer" : undefined}
-              className="flex items-center gap-2.5 px-5 py-3 bg-[#12121a] border border-[#1c1c2a] 
-                         rounded-xl text-[#e2e2ee] text-sm font-medium transition-all duration-300 
-                         hover:border-[#7c6af7] hover:text-[#a78bfa] hover:-translate-y-1 
+              className="flex items-center gap-2.5 px-5 py-3 bg-card border border-border 
+                         rounded-xl text-text text-sm font-medium transition-all duration-300 
+                         hover:border-accent hover:text-accent2 hover:-translate-y-1 
                          hover:shadow-[0_10px_28px_rgba(0,0,0,0.35)]"
             >
               {icon}

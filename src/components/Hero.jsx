@@ -6,16 +6,16 @@ function StatCounter({ target, suffix = "", label }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="font-display text-3xl font-extrabold text-white leading-none">
+      <div className="font-display text-4xl font-extrabold text-text leading-none">
         <span ref={numRef}>0</span>
-        <span className="text-[#a78bfa]">{suffix}</span>
+        <span className="text-accent">{suffix}</span>
       </div>
-      <div className="text-[10px] text-[#64647e] tracking-[0.1em] uppercase font-medium">{label}</div>
+      <div className="text-[10px] text-muted tracking-[0.1em] uppercase font-medium">{label}</div>
     </div>
   );
 }
 
-export default function Hero() {
+export default function Hero({ isDark }) {
   const scrollTo = (id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -23,13 +23,12 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden bg-bg"
     >
-      {/* LightRays background — followMouse handles cursor interaction now, no separate glow needed */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <LightRays
           raysOrigin="top-center"
-          raysColor="#7c6af7"
+          raysColor={isDark ? "var(--color-accent)" : "#93c5fd"}
           raysSpeed={1}
           lightSpread={1}
           rayLength={2}
@@ -44,7 +43,7 @@ export default function Hero() {
       <div
         className="absolute top-[-150px] right-[-150px] w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          background: "rgba(124,106,247,0.08)",
+          background: isDark ? "rgba(124,106,247,0.08)" : "rgba(217,119,87,0.08)",
           filter: "blur(120px)",
           animation: "orbFloat 12s ease-in-out infinite",
         }}
@@ -52,39 +51,43 @@ export default function Hero() {
       <div
         className="absolute bottom-[-50px] left-[-100px] w-[350px] h-[350px] rounded-full pointer-events-none"
         style={{
-          background: "rgba(167,139,250,0.06)",
+          background: isDark ? "rgba(167,139,250,0.06)" : "rgba(224,150,126,0.06)",
           filter: "blur(100px)",
           animation: "orbFloat 15s ease-in-out infinite reverse",
         }}
       />
 
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 lg:gap-20 items-center relative z-10">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center relative z-10">
         {/* Left — Content */}
-        <div className="hero-content">
+        <div className="hero-content relative">
+          
+          
+
           {/* Available badge */}
           <div
             className="inline-flex items-center gap-2.5 mb-7 px-4 py-1.5 rounded-full 
-                       border border-[#5eead4]/20 bg-[#5eead4]/6 animate-fade-in"
+                       border border-accent/20 bg-accent/10 animate-fade-in relative mt-4"
           >
             <span
-              className="w-1.5 h-1.5 rounded-full bg-[#5eead4]"
+              className="w-2 h-2 rounded-full bg-accent"
               style={{ animation: "blink 2s ease infinite" }}
             />
-            <span className="font-mono text-[11px] text-[#5eead4] tracking-[0.08em] uppercase">
+            <span className="font-mono text-[11px] text-accent font-semibold tracking-[0.08em] uppercase">
               Open to new opportunities
             </span>
+            
           </div>
 
           {/* Name */}
           <h1
-            className="font-display font-extrabold text-white leading-[0.95] tracking-[-0.035em] mb-4"
+            className="font-display font-extrabold text-text leading-[0.95] tracking-[-0.035em] mb-4 relative z-10"
             style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
           >
             Muhammad
             <br />
             <span
               style={{
-                background: "linear-gradient(135deg, #7c6af7 0%, #a78bfa 55%, #c4b5fd 100%)",
+                background: "linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent2) 55%, #c4b5fd 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -95,30 +98,27 @@ export default function Hero() {
           </h1>
 
           {/* Role */}
-          <p className="font-mono text-sm text-[#64647e] tracking-[0.04em] mb-6">
+          <p className="font-mono text-sm text-muted tracking-[0.04em] mb-6 mt-4">
             Software Engineer &nbsp;&middot;&nbsp; Islamabad, Pakistan
           </p>
 
           {/* Description */}
-          <p className="text-[#8888a8] text-[1.02rem] leading-[1.85] max-w-[480px] mb-10 font-light">
-            I build complete web products — robust backends, clean APIs, and
-            frontends that feel right to use. Java, MERN, Next.js and everything in
-            between.
+          <p className="text-text text-[1.1rem] leading-[1.85] max-w-[550px] mb-10 font-medium">
+            Full-Stack Developer with a strong foundation in Java (Spring Boot) and the MERN stack, and growing expertise in Python based AI and automation systems. Experienced in delivering end to end solutions, from designing responsive React frontends to implementing robust backend logic, secure authentication and machine learning driven features.
           </p>
 
           {/* Actions */}
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex flex-wrap gap-4 mb-12 relative z-10">
             <button
               onClick={() => scrollTo("#projects")}
-              className="relative inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] text-sm 
+              className="relative inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm 
                          font-semibold text-white overflow-hidden transition-all duration-300 
-                         hover:-translate-y-0.5 active:translate-y-0 group"
+                         hover:-translate-y-0.5 active:translate-y-0 group bg-accent hover:bg-accent2"
               style={{
-                background: "linear-gradient(135deg, #7c6af7, #a78bfa)",
-                boxShadow: "0 4px 24px rgba(124,106,247,0.28)",
+                boxShadow: isDark ? "0 4px 24px rgba(124,106,247,0.28)" : "0 4px 24px rgba(217,119,87,0.28)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 10px 36px rgba(124,106,247,0.5)")}
-              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 4px 24px rgba(124,106,247,0.28)")}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = isDark ? "0 10px 36px rgba(124,106,247,0.5)" : "0 10px 36px rgba(217,119,87,0.5)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = isDark ? "0 4px 24px rgba(124,106,247,0.28)" : "0 4px 24px rgba(217,119,87,0.28)")}
             >
               View My Work
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -129,17 +129,17 @@ export default function Hero() {
               href="https://github.com/soban-iftikhar"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] text-sm font-medium 
-                         text-[#e2e2ee] border border-[#1c1c2a] bg-transparent transition-all duration-300 
-                         hover:border-[#7c6af7]/50 hover:text-[#a78bfa] hover:-translate-y-0.5 
-                         hover:bg-[rgba(124,106,247,0.06)]"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium 
+                         text-text border border-border bg-surface transition-all duration-300 
+                         hover:border-accent hover:text-accent hover:-translate-y-0.5 
+                         hover:shadow-md"
             >
               GitHub Profile
             </a>
           </div>
 
           {/* Stats */}
-          <div className="flex flex-wrap gap-10 pt-8 border-t border-[#1c1c2a]">
+          <div className="flex flex-wrap gap-10 pt-8 border-t border-border">
             <StatCounter target={10} suffix="+" label="Projects Shipped" />
             <StatCounter target={3} suffix="+" label="Years Building" />
             <StatCounter target={3} suffix="" label="Certifications" />
@@ -147,21 +147,25 @@ export default function Hero() {
         </div>
 
         {/* Right — Photo */}
-        <div className="flex justify-center lg:justify-end order-first lg:order-none">
-          <div className="relative">
+        <div className="flex justify-center lg:justify-end order-first lg:order-none relative hero-parallax-img w-full">
+          
+          <div className="relative mx-auto lg:mr-0">
+            
+            
+
             {/* Spinning ring */}
             <div
-              className="w-[270px] h-[270px] lg:w-[300px] lg:h-[300px] rounded-full relative"
+              className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[420px] lg:h-[420px] rounded-full relative"
               style={{ animation: "none" }}
             >
               <div
-                className="absolute inset-[-3px] rounded-full"
+                className="absolute inset-[-4px] rounded-full opacity-60 dark:opacity-100"
                 style={{
-                  background: "conic-gradient(from 0deg, #7c6af7, #a78bfa, #c4b5fd, #7c6af7)",
+                  background: "conic-gradient(from 0deg, var(--color-accent), var(--color-accent2), #c4b5fd, var(--color-accent))",
                   animation: "spin 8s linear infinite",
                 }}
               />
-              <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-[#07070d] border-4 border-[#07070d]">
+              <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-bg border-[6px] border-bg">
                 <img
                   src="/profile.png"
                   alt="Muhammad Soban"
@@ -172,11 +176,10 @@ export default function Hero() {
 
             {/* Info pill */}
             <div
-              className="absolute bottom-4 -right-6 z-20 bg-[#12121a] border border-[#1c1c2a] rounded-xl 
-                         px-4 py-2.5 text-xs text-[#64647e] whitespace-nowrap hidden lg:block"
-              style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.5)" }}
+              className="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-card border border-border rounded-xl 
+                         px-5 py-3 text-sm text-muted whitespace-nowrap shadow-xl"
             >
-              <strong className="block text-white text-sm font-semibold mb-0.5">MERN & Next.js</strong>
+              <strong className="block text-text text-base font-semibold mb-0.5">Java Spring Boot</strong>
               Full Stack Developer
             </div>
           </div>

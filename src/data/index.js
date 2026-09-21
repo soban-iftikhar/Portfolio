@@ -3,24 +3,44 @@ import ticTacToeImg from "../assets/tic-tac-toe.png";
 import wordleImg from "../assets/wordle.png";
 export const projects = [
   {
-    id: 1,
-    name: "Brew Cafe",
-    initials: "BR",
-    img: brewImg,
-    bg: "linear-gradient(135deg, #0e0900 0%, #2c1810 100%)",
-    tags: ["react", "frontend"],
-    tech: ["React.js", "Tailwind CSS", "Vite", "Vercel"],
-    desc: "A Gen-Z aesthetic cafe website for Brew, Islamabad — featuring a filterable menu, real-time WhatsApp cart, masonry gallery, and smooth animations.",
+    id: 0,
+    name: "LEADS",
+    initials: "LD",
+    img: "/leads.png",
+    bg: "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+    tags: ["python", "react"],
+    tech: ["Python", "FastAPI", "Next.js", "PostgreSQL", "Celery", "Redis", "Scrapy", "Hugging Face", "WhatsApp API"],
+    desc: "An AI-powered real estate intelligence platform that automates property search, analyzes listings with LLMs, and handles WhatsApp outreach.",
     features: [
-      "Filterable ecommerce-style menu with 20+ items and PKR pricing",
-      "Real-time cart with WhatsApp order integration",
-      "Animated marquee ticker and masonry photo gallery",
-      "Fully responsive mobile-first design",
-      "Smooth scroll animations and hover micro-interactions",
-      "Deployed live on Vercel",
+      "Multi-agent scraping system running parallel workers on dedicated proxies",
+      "Market intelligence engine for live investment recommendations using LLMs",
+      "Lead scoring classifier with scikit-learn & Hugging Face NLP models",
+      "Dual database architecture (PostgreSQL and MongoDB) containerized with Docker",
+      "WhatsApp Cloud API integration for automated seller outreach",
+      "Built as one of two engineers in a twelve-module pipeline"
     ],
-    live: "https://brew-isb.vercel.app/",
-    github: "https://github.com/soban-iftikhar/BREW",
+    live: null,
+    github: null,
+  },
+  {
+    id: 1,
+    name: "VerbaTask",
+    initials: "VT",
+    img: "/verbatask.png",
+    bg: "linear-gradient(135deg, #0d1e15 0%, #112d1b 40%, #154526 100%)",
+    tags: ["react", "python"],
+    tech: ["React.js", "WhatsApp API", "Node.js", "AI", "PostgreSQL"],
+    desc: "A WhatsApp-based business management bot for Pakistani merchants, allowing them to track sales, stock, and automations via Roman Urdu voice notes.",
+    features: [
+      "Natural language processing for Urdu and Roman Urdu voice notes",
+      "Automated stock tracking and payment logging via WhatsApp",
+      "Custom business automations created through plain text messages",
+      "Quick-tap interactive WhatsApp buttons for fast checkout flows",
+      "Human-in-the-loop confirmation for large or unusual transactions",
+      "Lightweight web dashboard for daily sales, profit, and stock analytics"
+    ],
+    live: "https://verba-task.netlify.app",
+    github: "https://github.com/soban-iftikhar/VerbaTask",
   },
   {
     id: 2,
@@ -32,12 +52,12 @@ export const projects = [
     tech: ["Spring Boot", "React.js", "PostgreSQL", "Docker", "JWT", "OAuth", "Tailwind CSS"],
     desc: "A scalable, role-based Learning Management System with secure authentication, real-time chat, automated grading, and course analytics.",
     features: [
-      "Role-based access control for Students, Instructors, and Admins",
-      "Secure JWT/OAuth authentication with full session management",
-      "Automated grading with interactive time-based quizzes",
-      "Layered backend architecture using DTOs and Service patterns",
-      "Real-time chat functionality for course discussions",
-      "Production deployment on Docker, Vercel, and Render",
+      "Developed a scalable role-based LMS with secure JWT/OAuth authentication and real-time chat functionality",
+      "Engineered a layered backend architecture using DTOs and Service patterns to handle automated grading",
+      "Built a responsive frontend using React and Tailwind CSS, integrating RESTful APIs for dynamic course enrollment",
+      "Implemented interactive time-based quizzes and performance analytics",
+      "Deployed the system using Docker, Vercel and Render for a production-ready environment",
+      "Ensured secure configuration management across deployments"
     ],
     live: "https://lnkd.in/dYdmAtRD",
     github: "https://github.com/soban-iftikhar/Learnova-LMS",
@@ -52,11 +72,12 @@ export const projects = [
     tech: ["Node.js", "Express.js", "React.js", "MongoDB", "Socket.IO", "Google Maps API", "JWT"],
     desc: "A full-stack ride-hailing platform with real-time driver matching, live GPS tracking, and a complete trip lifecycle from booking to drop-off.",
     features: [
-      "Real-time driver matching using Socket.IO and geolocation",
-      "Live GPS tracking with Google Maps API integration",
-      "Complete trip lifecycle: booking, tracking, and completion",
-      "Scalable backend handling geolocation and nearest-driver allocation",
-      "Responsive React frontend with interactive map interface",
+      "Built a full-stack ride-hailing application covering the complete trip lifecycle from booking to completion",
+      "Integrated Google Maps API for real-time location tracking, route plotting, and distance calculation",
+      "Created a live driver-matching system using WebSockets (Socket.IO) for real-time requests and ETA tracking",
+      "Implemented secure user authentication and role-based access control for riders and drivers",
+      "Designed a responsive React frontend with a clean UI for interactive maps and booking",
+      "Developed scalable backend logic to manage geolocation data, trip history, and driver allocation"
     ],
     live: null,
     github: "https://github.com/soban-iftikhar/Swaari",
@@ -76,7 +97,7 @@ export const projects = [
       "Complex MongoDB relationships for favor requests and profiles",
       "Full MERN stack deployed on Vercel and Render",
       "Real-time request tracking and notification system",
-      "Mobile-responsive React UI with a clean UX flow",
+      "Mobile-responsive React UI with a clean UX flow"
     ],
     live: "https://hostel-mate-rho.vercel.app",
     github: "https://github.com/soban-iftikhar/HostelMate",
@@ -96,13 +117,33 @@ export const projects = [
       "Dynamic content rendering with search and category filters",
       "User favorites management and personalized feed",
       "Clean React frontend with a responsive article layout",
-      "RESTful API architecture with proper error handling",
+      "RESTful API architecture with proper error handling"
     ],
     live: null,
     github: "https://github.com/soban-iftikhar/BuzzNews",
   },
   {
     id: 6,
+    name: "Brew Cafe",
+    initials: "BR",
+    img: brewImg,
+    bg: "linear-gradient(135deg, #0e0900 0%, #2c1810 100%)",
+    tags: ["react", "frontend"],
+    tech: ["React.js", "Tailwind CSS", "Vite", "Vercel"],
+    desc: "A Gen-Z aesthetic cafe website for Brew, Islamabad — featuring a filterable menu, real-time WhatsApp cart, masonry gallery, and smooth animations.",
+    features: [
+      "Filterable ecommerce-style menu with 20+ items and PKR pricing",
+      "Real-time cart with WhatsApp order integration",
+      "Animated marquee ticker and masonry photo gallery",
+      "Fully responsive mobile-first design",
+      "Smooth scroll animations and hover micro-interactions",
+      "Deployed live on Vercel"
+    ],
+    live: "https://brew-isb.vercel.app/",
+    github: "https://github.com/soban-iftikhar/BREW",
+  },
+  {
+    id: 7,
     name: "Wordle Clone",
     initials: "WD",
     img: wordleImg,
@@ -116,13 +157,13 @@ export const projects = [
       "Animated on-screen keyboard with per-letter state tracking",
       "Word validation against a curated dictionary",
       "Responsive layout for both desktop and mobile",
-      "Deployed and live on Vercel",
+      "Deployed and live on Vercel"
     ],
     live: "https://wordle-eight-zeta.vercel.app/",
     github: "https://github.com/soban-iftikhar/Frontend-projects",
   },
   {
-    id: 7,
+    id: 8,
     name: "Tic-Tac-Toe AI",
     initials: "TTT",
     img: ticTacToeImg,
@@ -136,37 +177,33 @@ export const projects = [
       "Hard mode powered by Minimax — genuinely unbeatable",
       "Animated winning line and live score tracking",
       "Clean state management using React hooks",
-      "Deployed live on Vercel",
+      "Deployed live on Vercel"
     ],
     live: "https://tic-tac-toe-beta-silk.vercel.app/",
     github: "https://github.com/soban-iftikhar/Frontend-projects",
-  },
+  }
 ];
 
 export const skills = [
   {
     label: "Languages",
-    items: ["Java", "JavaScript", "Python", "HTML", "CSS", "SQL"],
+    items: ["Java", "Python", "JavaScript", "TypeScript", "HTML", "CSS"],
   },
   {
-    label: "Backend",
-    items: ["Spring Boot", "Node.js", "Express.js", "FastAPI", "REST APIs", "Socket.IO", "JWT / OAuth"],
-  },
-  {
-    label: "Frontend",
-    items: ["React.js", "Tailwind CSS", "Vite", "Context API", "React Hooks"],
+    label: "Libraries & Frameworks",
+    items: ["Spring Boot", "Node.js", "Express.js", "React.js", "Next.js", "FastAPI", "Celery", "Scrapy", "Playwright", "BeautifulSoup"],
   },
   {
     label: "Databases",
-    items: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"],
+    items: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
   },
   {
-    label: "Tools & DevOps",
-    items: ["Git", "GitHub", "Docker", "Postman", "Vercel", "Render"],
+    label: "Tools",
+    items: ["Git", "GitHub", "Postman", "Docker"],
   },
   {
-    label: "Security & Auth",
-    items: ["JWT Auth", "RBAC", "OAuth 2.0", "Secure APIs"],
+    label: "Platforms",
+    items: ["IntelliJ IDEA", "Visual Studio Code"],
   },
 ];
 
@@ -177,7 +214,7 @@ export const certifications = [
     date: "Feb 15, 2025",
     badge: "CISCO",
     badgeType: "cisco",
-    img: "/certificates/c1.jpg",
+    img: "/certificates/c1.png",
   },
   {
     title: "JavaScript Essentials 2",
@@ -185,7 +222,7 @@ export const certifications = [
     date: "Mar 6, 2025",
     badge: "CISCO",
     badgeType: "cisco",
-    img: "/certificates/c2.jpg",
+    img: "/certificates/c2.png",
   },
   {
     title: "Intro to SQL",
@@ -193,7 +230,7 @@ export const certifications = [
     date: "May 7, 2025",
     badge: "KGL",
     badgeType: "kaggle",
-    img: "/certificates/c3.jpg",
+    img: "/certificates/c3.png",
   },
 ];
 

@@ -8,19 +8,19 @@ function SkillCard({ label, items, delay = 0 }) {
   return (
     <div
       ref={ref}
-      className="reveal group bg-[#12121a] border border-[#1c1c2a] rounded-2xl p-6 
+      className="reveal group bg-card border border-border rounded-2xl p-6 
                  relative overflow-hidden transition-all duration-300 
-                 hover:border-[#7c6af7]/25 hover:-translate-y-1.5 
+                 hover:border-accent/25 hover:-translate-y-1.5 
                  hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* top shimmer line */}
       <div
         className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: "linear-gradient(90deg, transparent, #7c6af7, transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, var(--color-accent), transparent)" }}
       />
 
-      <p className="font-mono text-[10px] text-[#a78bfa] tracking-[0.14em] uppercase font-medium mb-4">
+      <p className="font-mono text-[10px] text-accent2 tracking-[0.14em] uppercase font-medium mb-4">
         {label}
       </p>
 
@@ -28,9 +28,9 @@ function SkillCard({ label, items, delay = 0 }) {
         {items.map((tag) => (
           <span
             key={tag}
-            className="font-mono text-[11px] px-3 py-1 bg-[#1a1a28] border border-[#1c1c2a] 
-                       rounded-md text-[#e2e2ee] transition-all duration-200 cursor-default
-                       hover:bg-[rgba(124,106,247,0.1)] hover:border-[#7c6af7]/35 hover:text-[#a78bfa]"
+            className="font-mono text-[11px] px-3 py-1 bg-subtle border border-border 
+                       rounded-md text-text transition-all duration-200 cursor-default
+                       hover:bg-accent/10 hover:border-accent/35 hover:text-accent2"
           >
             {tag}
           </span>
@@ -42,7 +42,7 @@ function SkillCard({ label, items, delay = 0 }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-[#0d0d14] relative z-10">
+    <section id="skills" className="py-24 px-6 bg-surface relative z-10">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="What I Work With"

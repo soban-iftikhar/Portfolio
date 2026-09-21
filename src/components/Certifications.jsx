@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
-import ElectricBorder from "./ui/ElectricBorder";
 import { certifications } from "../data";
 
 function CertModal({ cert, onClose }) {
@@ -30,15 +29,15 @@ function CertModal({ cert, onClose }) {
         onClick={onClose}
       />
       <div
-        className="relative bg-[#12121a] border border-[#7c6af7]/22 rounded-2xl w-full max-w-3xl 
+        className="relative bg-card border border-accent/22 rounded-2xl w-full max-w-3xl 
                    p-6 sm:p-8 z-10"
         style={{ animation: "slideUp 0.3s cubic-bezier(0.4,0,0.2,1)" }}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#1a1a28] border border-[#1c1c2a] 
-                     flex items-center justify-center text-[#64647e] text-sm transition-all duration-200 
-                     hover:bg-[#7c6af7] hover:text-white hover:border-[#7c6af7]"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-subtle border border-border 
+                     flex items-center justify-center text-muted text-sm transition-all duration-200 
+                     hover:bg-accent hover:text-white hover:border-accent"
           aria-label="Close"
         >
           ✕
@@ -47,11 +46,11 @@ function CertModal({ cert, onClose }) {
         <img
           src={cert.img}
           alt={cert.title}
-          className="w-full rounded-xl border border-[#1c1c2a] mb-5 object-cover"
+          className="w-full rounded-xl border border-border mb-5 object-cover"
           style={{ maxHeight: "420px" }}
         />
-        <h3 className="font-display font-bold text-white text-xl mb-1">{cert.title}</h3>
-        <p className="font-mono text-[11px] text-[#64647e]">
+        <h3 className="font-display font-bold text-text text-xl mb-1">{cert.title}</h3>
+        <p className="font-mono text-[11px] text-muted">
           {cert.issuer} · {cert.date}
         </p>
       </div>
@@ -78,8 +77,9 @@ function CertCard({ cert, onOpen, delay = 0 }) {
 
   const cardContent = (
     <div
-      className="group relative overflow-hidden 
-                 transition-all duration-300 
+      className="group relative overflow-hidden bg-card border border-border rounded-[18px] cursor-pointer
+                 transition-all duration-300 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]
+                 dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]
                  hover:-translate-y-1.5 flex items-start gap-5 p-6"
       onClick={() => onOpen(cert)}
     >
@@ -101,19 +101,19 @@ function CertCard({ cert, onOpen, delay = 0 }) {
 
       {/* Info */}
       <div className="flex-1 relative z-10">
-        <h3 className="font-display font-bold text-white text-[1rem] leading-[1.3] mb-1.5">
+        <h3 className="font-display font-bold text-text text-[1rem] leading-[1.3] mb-1.5">
           {cert.title}
         </h3>
-        <p className="font-mono text-[11px] text-[#a78bfa] tracking-[0.05em] mb-1">
+        <p className="font-mono text-[11px] text-accent2 tracking-[0.05em] mb-1">
           {cert.issuer}
         </p>
-        <p className="font-mono text-[10px] text-[#64647e]">{cert.date}</p>
+        <p className="font-mono text-[10px] text-muted">{cert.date}</p>
       </div>
 
       {/* Arrow */}
       <span
-        className="absolute bottom-5 right-5 text-[12px] text-[#64647e] z-10 
-                   transition-all duration-200 group-hover:text-[#a78bfa] 
+        className="absolute bottom-5 right-5 text-[12px] text-muted z-10 
+                   transition-all duration-200 group-hover:text-accent2 
                    group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       >
         ↗
@@ -127,16 +127,7 @@ function CertCard({ cert, onOpen, delay = 0 }) {
       className="reveal"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <ElectricBorder
-        color="#06b6d4"
-        speed={0.7}
-        chaos={0.1}
-        thickness={1.2}
-        borderRadius={18}
-        style={{ borderRadius: 18 }}
-      >
-        {cardContent}
-      </ElectricBorder>
+      {cardContent}
     </div>
   );
 }
@@ -145,7 +136,7 @@ export default function Certifications() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <section id="certifications" className="py-24 px-6 bg-[#07070d] relative z-10">
+    <section id="certifications" className="py-24 px-6 bg-bg relative z-10">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Credentials"

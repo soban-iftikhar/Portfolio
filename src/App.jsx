@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GridBackground from "./components/GridBackground";
 import LightRays from "./components/backgrounds/LightRays";
@@ -13,13 +14,25 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function Portfolio() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
+
   return (
-    <div className="min-h-screen bg-[#07070d] text-[#e2e2ee] overflow-x-hidden">
-      <GridBackground />
+    <div className="min-h-screen bg-bg text-text overflow-x-hidden transition-colors duration-300">
+      <GridBackground isDark={isDark} />
       <div style={{ position: 'fixed', inset: 0, height: '100vh', width: '100vw', zIndex: 0, pointerEvents: 'none' }}>
         <LightRays
           raysOrigin="top-center"
-          raysColor="#c084fc"
+          raysColor={isDark ? "#c084fc" : "#93c5fd"}
           raysSpeed={0.8}
           lightSpread={0.8}
           rayLength={2.5}
@@ -29,9 +42,9 @@ function Portfolio() {
         />
       </div>
       <div style={{ position: 'relative', zIndex: 10 }}>
-        <Navbar />
+        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
         <main>
-        <Hero />
+        <Hero isDark={isDark} />
         <Marquee />
         <Skills />
         <Projects />

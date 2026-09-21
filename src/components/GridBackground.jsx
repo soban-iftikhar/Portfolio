@@ -1,12 +1,13 @@
-export default function GridBackground() {
+export default function GridBackground({ isDark }) {
   return (
     <>
       {/* Grid lines */}
       <div
-        className="fixed inset-0 pointer-events-none z-0"
+        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(124,106,247,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(124,106,247,0.025) 1px, transparent 1px)",
+          backgroundImage: isDark
+            ? "linear-gradient(rgba(124,106,247,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(124,106,247,0.025) 1px, transparent 1px)"
+            : "linear-gradient(rgba(217,119,87,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(217,119,87,0.05) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />

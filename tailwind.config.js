@@ -1,23 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        display: ["Syne", "sans-serif"],
+        display: ["Playfair Display", "serif"],
         sans: ["Inter", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
+        doodle: ["Caveat", "cursive"],
       },
       colors: {
-        bg: "#07070d",
-        surface: "#0d0d14",
-        card: "#12121a",
-        border: "#1c1c2a",
-        accent: "#7c6af7",
-        accent2: "#a78bfa",
-        subtle: "#1a1a28",
-        text: "#e2e2ee",
-        muted: "#64647e",
+        bg: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        card: "var(--color-card)",
+        border: "var(--color-border)",
+        accent: "var(--color-accent)",
+        accent2: "var(--color-accent2)",
+        subtle: "var(--color-subtle)",
+        text: "var(--color-text)",
+        muted: "var(--color-muted)",
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",

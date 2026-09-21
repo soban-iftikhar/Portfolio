@@ -10,44 +10,66 @@ function GraduationIcon() {
   );
 }
 
+const eduData = [
+  {
+    degree: "Bachelor of Science in Software Engineering",
+    school: "COMSATS University Islamabad",
+    date: "September 2023 — June 2027",
+  },
+  {
+    degree: "FSc Pre-Engineering",
+    school: "Iman College, Sohal, Faisalabad",
+    date: "August 2021 — May 2023",
+  },
+  {
+    degree: "Matriculation",
+    school: "Iman Public Higher Secondary School, Sohal, Faisalabad",
+    date: "June 2019 — March 2021",
+  },
+];
+
 export default function Education() {
   const ref = useScrollReveal();
 
   return (
-    <section id="education" className="py-24 px-6 bg-[#0d0d14] relative z-10">
+    <section id="education" className="py-24 px-6 bg-surface relative z-10">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Academic Background"
           title="Education"
         />
 
-        <div
-          ref={ref}
-          className="reveal bg-[#12121a] border border-[#1c1c2a] rounded-[20px] p-7 sm:p-9 
-                     grid grid-cols-1 sm:grid-cols-[52px_1fr] gap-6 items-center 
-                     transition-all duration-300 hover:border-[#7c6af7]/25 
-                     hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
-        >
-          {/* Icon */}
-          <div
-            className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center flex-shrink-0"
-            style={{ background: "linear-gradient(135deg, #7c6af7, #a78bfa)" }}
-          >
-            <GraduationIcon />
-          </div>
+        <div className="reveal flex flex-col gap-5" ref={ref}>
+          {eduData.map((edu, i) => (
+            <div
+              key={i}
+              className="bg-card border border-border rounded-[20px] p-7 sm:p-9 
+                         grid grid-cols-1 sm:grid-cols-[52px_1fr] gap-6 items-center 
+                         transition-all duration-300 hover:border-accent/25 
+                         hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
+            >
+              {/* Icon */}
+              <div
+                className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-accent2))" }}
+              >
+                <GraduationIcon />
+              </div>
 
-          {/* Content */}
-          <div>
-            <h3 className="font-display font-bold text-white text-[1.2rem] mb-1">
-              Bachelor of Science in Software Engineering
-            </h3>
-            <p className="font-mono text-[12px] text-[#a78bfa] tracking-[0.04em] mb-1">
-              COMSATS University Islamabad (CUI)
-            </p>
-            <p className="font-mono text-[11px] text-[#64647e]">
-              September 2023 — June 2027 &nbsp;&middot;&nbsp; 6th Semester
-            </p>
-          </div>
+              {/* Content */}
+              <div>
+                <h3 className="font-display font-bold text-text text-[1.2rem] mb-1">
+                  {edu.degree}
+                </h3>
+                <p className="font-mono text-[12px] text-accent2 tracking-[0.04em] mb-1">
+                  {edu.school}
+                </p>
+                <p className="font-mono text-[11px] text-muted">
+                  {edu.date}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
