@@ -1,90 +1,80 @@
-import { useScrollReveal } from "../hooks/useScrollReveal";
-import SectionHeader from "./SectionHeader";
-import { experiences } from "../data";
+import React from 'react';
 
-function BriefcaseIcon() {
+/* Experience section. `v` is the view model built in App.renderVals(). */
+export default function Experience({ v }) {
+  const {  } = v;
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2" />
-      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-    </svg>
-  );
-}
-
-function ExperienceCard({ exp, delay = 0 }) {
-  const ref = useScrollReveal();
-
-  return (
-    <div
-      ref={ref}
-      className="reveal bg-card border border-border rounded-[20px] p-7 sm:p-9 
-                 grid grid-cols-1 sm:grid-cols-[52px_1fr] gap-6 items-start 
-                 transition-all duration-300 hover:border-accent/25 
-                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      {/* Icon */}
-      <div
-        className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center flex-shrink-0"
-        style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-accent2))" }}
-      >
-        <BriefcaseIcon />
-      </div>
-
-      {/* Content */}
-      <div>
-        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-          <h3 className="font-display font-bold text-text text-[1.2rem]">
-            {exp.role}
-          </h3>
-          {exp.skills && (
-            <div className="flex flex-wrap gap-1.5">
-              {exp.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2 py-0.5 rounded text-[10px] font-mono bg-subtle border border-border text-muted"
-                >
-                  {skill}
-                </span>
-              ))}
+    <>
+      <section id="experience" className="sec">
+        <div className="wrap xp">
+          <div className="xp-side rv">
+            <p className="label"><svg className="px pi pi-bag" viewBox="0 0 8 7" aria-hidden="true"><path fill="currentColor" d="M3 0h2v1h-2zM2 1h1v1h-1zM5 1h1v1h-1zM0 2h8v5h-8z"></path><path fill="var(--bg)" d="M0 4h8v1h-8z"></path><path fill="var(--acc2)" d="M3 4h2v1h-2z"></path></svg>Experience</p>
+            <h2 className="h2">Where I've <em>worked</em> &amp; studied.</h2>
+            <p className="sub">Industry experience at Decimal Solutions across full-stack development and AI/ML engineering.</p>
+            <div className="xp-now">
+              <svg className="px" viewBox="0 0 16 16" aria-hidden="true"><path fill="#17171C" d="M5 0h6v1h-6zM3 1h3v1h-3zM7 1h6v1h-6zM2 2h12v1h-12zM2 3h13v1h-13zM2 4h2v1h-2zM12 4h2v1h-2zM2 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM9 6h3v1h-3zM13 6h1v1h-1z"></path><path fill="#C68B66" d="M4 4h8v1h-8zM3 5h10v1h-10zM3 6h1v1h-1zM7 6h2v1h-2zM12 6h1v1h-1zM3 7h1v1h-1zM7 7h2v1h-2zM12 7h1v1h-1zM3 8h4v1h-4zM8 8h5v1h-5zM3 9h4v1h-4zM9 9h4v1h-4zM3 10h1v1h-1zM12 10h1v1h-1z"></path><path fill="#A56E4D" d="M2 7h1v1h-1zM13 7h1v1h-1zM7 8h1v1h-1zM7 9h2v1h-2z"></path><path fill="#F2EFEA" d="M4 7h3v1h-3zM9 7h3v1h-3z"></path><path className="pupil" fill="#111" d="M5 7h1v1h-1zM10 7h1v1h-1z"></path><path className="lid" fill="#C68B66" d="M4 7h3v1h-3zM9 7h3v1h-3z"></path><path fill="#2A1F1C" d="M4 10h8v1h-8zM3 11h3v1h-3zM10 11h3v1h-3zM4 12h8v1h-8z"></path><path fill="#6E2F2A" d="M6 11h4v1h-4z"></path><path fill="#232733" d="M4 13h1v1h-1zM11 13h1v1h-1zM2 14h3v1h-3zM11 14h3v1h-3zM1 15h4v1h-4zM11 15h4v1h-4z"></path><path fill="#E9E7E2" d="M5 13h2v1h-2zM9 13h2v1h-2zM6 14h1v1h-1zM9 14h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1z"></path><path fill="#7B1E2C" d="M7 13h2v1h-2zM7 14h2v1h-2zM7 15h2v1h-2z"></path></svg>
+              <div><small>Currently building</small><b>LEADS, an AI real estate platform</b></div>
             </div>
-          )}
+          </div>
+
+          <div className="tl">
+            <span className="tl-fill" aria-hidden="true"></span>
+            <div className="tl-item rv">
+              <span className="tl-dot" aria-hidden="true"></span>
+              <article className="tl-card">
+                <div className="tl-top"><span className="tl-type">Work</span><span className="tl-date">Jun 2026 - Aug 2026</span></div>
+                <h3 className="tl-role">AI / ML Intern</h3>
+                <p className="tl-co">Decimal Solutions · Islamabad</p>
+                <ul className="tl-pts">
+                  <li>Built backend services and REST APIs in Python and FastAPI for ML and automation workflows.</li>
+                  <li>Built data pipelines and integrated ML models into full-stack apps on Next.js and Django.</li>
+                  <li>Shipped automation features with cross-functional teams through code reviews, performance work and agile sprints.</li>
+                </ul>
+                <div className="chips"><span className="chip">Python</span><span className="chip">FastAPI</span><span className="chip">Next.js</span><span className="chip">Django</span></div>
+              </article>
+            </div>
+            <div className="tl-item rv">
+              <span className="tl-dot" aria-hidden="true"></span>
+              <article className="tl-card">
+                <div className="tl-top"><span className="tl-type">Work</span><span className="tl-date">Jul 2025 - Sep 2025</span></div>
+                <h3 className="tl-role">Full-Stack Developer Intern</h3>
+                <p className="tl-co">Decimal Solutions · Islamabad</p>
+                <ul className="tl-pts">
+                  <li>Built and deployed full-stack web apps on the MERN stack with a focus on scalable architecture and clean code.</li>
+                  <li>Designed REST APIs and integrated them with responsive React frontends for smooth data flow.</li>
+                  <li>Ran real-time debugging and professional Git workflows under senior mentorship.</li>
+                </ul>
+                <div className="chips"><span className="chip">MongoDB</span><span className="chip">Express.js</span><span className="chip">React.js</span><span className="chip">Node.js</span></div>
+              </article>
+            </div>
+            <div className="tl-item rv">
+              <span className="tl-dot edu" aria-hidden="true"></span>
+              <article className="tl-card">
+                <div className="tl-top"><span className="tl-type edu">Education</span><span className="tl-date">2023 - 2027</span></div>
+                <h3 className="tl-role">BS Software Engineering</h3>
+                <p className="tl-co">COMSATS University Islamabad</p>
+              </article>
+            </div>
+            <div className="tl-item rv">
+              <span className="tl-dot edu" aria-hidden="true"></span>
+              <div className="tl-mini">
+                <article className="tl-card">
+                  <div className="tl-top"><span className="tl-type edu">Education</span><span className="tl-date">2021 - 2023</span></div>
+                  <h3 className="tl-role" style={{ fontSize: "22px" }}>FSc Pre-Engineering</h3>
+                  <p className="tl-co">Iman College, Sohal, Faisalabad</p>
+                </article>
+                <article className="tl-card">
+                  <div className="tl-top"><span className="tl-type edu">Education</span><span className="tl-date">2019 - 2021</span></div>
+                  <h3 className="tl-role" style={{ fontSize: "22px" }}>Matriculation</h3>
+                  <p className="tl-co">Iman Public Higher Secondary School, Faisalabad</p>
+                </article>
+              </div>
+            </div>
+          </div>
         </div>
-        <p className="font-mono text-[12px] text-accent2 tracking-[0.04em] mb-1">
-          {exp.company}
-        </p>
-        <p className="font-mono text-[11px] text-muted mb-6">
-          {exp.period}
-        </p>
+      </section>
 
-        <ul className="flex flex-col gap-2.5">
-          {exp.points.map((pt, i) => (
-            <li key={i} className="text-[13.5px] text-muted pl-5 relative leading-[1.7]">
-              <span className="absolute left-0 top-[6px] text-accent text-[10px]">—</span>
-              {pt}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-export default function Experience() {
-  return (
-    <section id="experience" className="py-24 px-6 bg-surface relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeader
-          eyebrow="Where I've Worked"
-          title="Experience"
-        />
-
-        <div className="flex flex-col gap-6">
-          {experiences.map((exp, i) => (
-            <ExperienceCard key={exp.role + exp.period} exp={exp} delay={i * 100} />
-          ))}
-        </div>
-      </div>
-    </section>
+  
+    </>
   );
 }

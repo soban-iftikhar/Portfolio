@@ -1,221 +1,112 @@
-import { useCounterAnimation } from "../hooks/useScrollReveal";
-import LightRays from "./backgrounds/LightRays";
+import React from 'react';
 
-function StatCounter({ target, suffix = "", label }) {
-  const numRef = useCounterAnimation(target);
-
+/* Hero section. `v` is the view model built in App.renderVals(). */
+export default function Hero({ v }) {
+  const { setAvatar, setEditor } = v;
   return (
-    <div className="flex flex-col gap-1">
-      <div className="font-display text-4xl font-extrabold text-text leading-none">
-        <span ref={numRef}>0</span>
-        <span className="text-accent">{suffix}</span>
-      </div>
-      <div className="text-[10px] text-muted tracking-[0.1em] uppercase font-medium">{label}</div>
-    </div>
-  );
-}
-
-export default function Hero({ isDark }) {
-  const scrollTo = (id) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden bg-bg"
-    >
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor={isDark ? "var(--color-accent)" : "#93c5fd"}
-          raysSpeed={1}
-          lightSpread={1}
-          rayLength={2}
-          followMouse={true}
-          mouseInfluence={0.1}
-          fadeDistance={1.0}
-          saturation={1.0}
-        />
-      </div>
-
-      {/* Background orbs */}
-      <div
-        className="absolute top-[-150px] right-[-150px] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: isDark ? "rgba(124,106,247,0.08)" : "rgba(217,119,87,0.08)",
-          filter: "blur(120px)",
-          animation: "orbFloat 12s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute bottom-[-50px] left-[-100px] w-[350px] h-[350px] rounded-full pointer-events-none"
-        style={{
-          background: isDark ? "rgba(167,139,250,0.06)" : "rgba(224,150,126,0.06)",
-          filter: "blur(100px)",
-          animation: "orbFloat 15s ease-in-out infinite reverse",
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center relative z-10">
-        {/* Left — Content */}
-        <div className="hero-content relative">
-          
-          
-
-          {/* Available badge */}
-          <div
-            className="inline-flex items-center gap-2.5 mb-7 px-4 py-1.5 rounded-full 
-                       border border-accent/20 bg-accent/10 animate-fade-in relative mt-4"
-          >
-            <span
-              className="w-2 h-2 rounded-full bg-accent"
-              style={{ animation: "blink 2s ease infinite" }}
-            />
-            <span className="font-mono text-[11px] text-accent font-semibold tracking-[0.08em] uppercase">
-              Open to new opportunities
-            </span>
-            
+    <>
+      <section id="top" className="hero" aria-label="Introduction">
+        <div className="hero-grid-bg" aria-hidden="true"></div>
+        <div className="wrap hero-in">
+          <div>
+            <span className="status"><i aria-hidden="true"></i>Open to work</span>
+            <p className="hi">Hi, I'm <b>Muhammad Soban</b> · Islamabad, Pakistan</p>
+            <h1 className="h1"><span className="w hl">Full-stack</span> <span className="w">developer</span> <span className="w">building</span> <span className="w">reliable</span> <span className="w">web</span> <span className="w">products.</span></h1>
+            <p className="lede">I build web applications end to end: <b>REST APIs and databases</b> on the backend, <b>React and Next.js</b> on the frontend, and Python services for <b>AI and automation</b>. Most of my work is in Java Spring Boot, the MERN stack and FastAPI.</p>
+            <div className="cta">
+              <a className="btn btn-pri" href="#projects">See my work
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+              <a className="btn" href="/Muhammad-Soban-Resume.pdf" download="Muhammad-Soban-Resume.pdf" target="_blank" rel="noopener">Download CV
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"></path></svg>
+              </a>
+            </div>
+            <div className="facts">
+              <div className="fact"><b>9</b><span>Projects shipped</span></div>
+              <div className="fact"><b>2</b><span>Roles at Decimal Solutions</span></div>
+              <div className="fact"><b>12</b><span>Certifications</span></div>
+            </div>
           </div>
 
-          {/* Name */}
-          <h1
-            className="font-display font-extrabold text-text leading-[0.95] tracking-[-0.035em] mb-4 relative z-10"
-            style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
-          >
-            Muhammad
-            <br />
-            <span
-              style={{
-                background: "linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent2) 55%, #c4b5fd 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Soban.
-            </span>
-          </h1>
+          <div className="scene">
+            <span className="spark s1" aria-hidden="true"><svg viewBox="0 0 7 7" className="px"><path fill="currentColor" d="M3 0h1v7h-1zM0 3h7v1h-7z"></path></svg></span>
+            <span className="spark s2" aria-hidden="true"><svg viewBox="0 0 7 7" className="px"><path fill="currentColor" d="M3 0h1v7h-1zM0 3h7v1h-7z"></path></svg></span>
+            <span className="spark s3" aria-hidden="true"><svg viewBox="0 0 7 7" className="px"><path fill="currentColor" d="M3 0h1v7h-1zM0 3h7v1h-7z"></path></svg></span>
 
-          {/* Role */}
-          <p className="font-mono text-sm text-muted tracking-[0.04em] mb-6 mt-4">
-            Software Engineer &nbsp;&middot;&nbsp; Islamabad, Pakistan
-          </p>
+            <div className="bubble" aria-hidden="true"><span>npm run build ✓</span><span>tests passing</span><span>chai++</span></div>
+            <div className="peek" aria-hidden="true" ref={setAvatar}>
+              <svg className="px" viewBox="0 0 16 16"><path fill="#17171C" d="M5 0h6v1h-6zM3 1h3v1h-3zM7 1h6v1h-6zM2 2h12v1h-12zM2 3h13v1h-13zM2 4h2v1h-2zM12 4h2v1h-2zM2 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM9 6h3v1h-3zM13 6h1v1h-1z"></path><path fill="#34343F" d="M4 0h1v1h-1zM6 1h1v1h-1z"></path><path fill="#C68B66" d="M4 4h8v1h-8zM3 5h10v1h-10zM3 6h1v1h-1zM7 6h2v1h-2zM12 6h1v1h-1zM3 7h1v1h-1zM7 7h2v1h-2zM12 7h1v1h-1zM3 8h4v1h-4zM8 8h5v1h-5zM3 9h4v1h-4zM9 9h4v1h-4zM3 10h1v1h-1zM12 10h1v1h-1z"></path><path fill="#A56E4D" d="M2 7h1v1h-1zM13 7h1v1h-1zM7 8h1v1h-1zM7 9h2v1h-2z"></path><path fill="#F2EFEA" d="M4 7h3v1h-3zM9 7h3v1h-3z"></path><path className="pupil" fill="#111" d="M5 7h1v1h-1zM10 7h1v1h-1z"></path><path className="lid" fill="#C68B66" d="M4 7h3v1h-3zM9 7h3v1h-3z"></path><path fill="#2A1F1C" d="M4 10h8v1h-8zM3 11h3v1h-3zM10 11h3v1h-3zM4 12h8v1h-8z"></path><path fill="#6E2F2A" d="M6 11h4v1h-4z"></path><path fill="#232733" d="M4 13h1v1h-1zM11 13h1v1h-1zM2 14h3v1h-3zM11 14h3v1h-3zM1 15h4v1h-4zM11 15h4v1h-4z"></path><path fill="#E9E7E2" d="M5 13h2v1h-2zM9 13h2v1h-2zM6 14h1v1h-1zM9 14h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1z"></path><path fill="#7B1E2C" d="M7 13h2v1h-2zM7 14h2v1h-2zM7 15h2v1h-2z"></path><path fill="#3A4152" d="M5 14h1v1h-1zM10 14h1v1h-1zM5 15h1v1h-1zM10 15h1v1h-1z"></path></svg>
+            </div>
+            <div className="hands" aria-hidden="true"><i></i><i></i></div>
 
-          {/* Description */}
-          <p className="text-text text-[1.1rem] leading-[1.85] max-w-[550px] mb-10 font-medium">
-            Full-Stack Developer with a strong foundation in Java (Spring Boot) and the MERN stack, and growing expertise in Python based AI and automation systems. Experienced in delivering end to end solutions, from designing responsive React frontends to implementing robust backend logic, secure authentication and machine learning driven features.
-          </p>
-
-          {/* Actions */}
-          <div className="flex flex-wrap gap-4 mb-12 relative z-10">
-            <button
-              onClick={() => scrollTo("#projects")}
-              className="relative inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm 
-                         font-semibold text-white overflow-hidden transition-all duration-300 
-                         hover:-translate-y-0.5 active:translate-y-0 group bg-accent hover:bg-accent2"
-              style={{
-                boxShadow: isDark ? "0 4px 24px rgba(124,106,247,0.28)" : "0 4px 24px rgba(217,119,87,0.28)",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = isDark ? "0 10px 36px rgba(124,106,247,0.5)" : "0 10px 36px rgba(217,119,87,0.5)")}
-              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = isDark ? "0 4px 24px rgba(124,106,247,0.28)" : "0 4px 24px rgba(217,119,87,0.28)")}
-            >
-              View My Work
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-            <a
-              href="https://github.com/soban-iftikhar"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium 
-                         text-text border border-border bg-surface transition-all duration-300 
-                         hover:border-accent hover:text-accent hover:-translate-y-0.5 
-                         hover:shadow-md"
-            >
-              GitHub Profile
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-wrap gap-10 pt-8 border-t border-border">
-            <StatCounter target={10} suffix="+" label="Projects Shipped" />
-            <StatCounter target={3} suffix="+" label="Years Building" />
-            <StatCounter target={3} suffix="" label="Certifications" />
-          </div>
-        </div>
-
-        {/* Right — Photo */}
-        <div className="flex justify-center lg:justify-end order-first lg:order-none relative hero-parallax-img w-full">
-          
-          <div className="relative mx-auto lg:mr-0">
-            
-            
-
-            {/* Spinning ring */}
-            <div
-              className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[420px] lg:h-[420px] rounded-full relative"
-              style={{ animation: "none" }}
-            >
-              <div
-                className="absolute inset-[-4px] rounded-full opacity-60 dark:opacity-100"
-                style={{
-                  background: "conic-gradient(from 0deg, var(--color-accent), var(--color-accent2), #c4b5fd, var(--color-accent))",
-                  animation: "spin 8s linear infinite",
-                }}
-              />
-              <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-bg border-[6px] border-bg">
-                <img
-                  src="/profile.png"
-                  alt="Muhammad Soban"
-                  className="w-full h-full object-cover object-top"
-                />
+            <div className="laptop">
+              <div className="screen">
+                <div className="ed" ref={setEditor} data-f="0" aria-label="Code editor animation" role="img">
+                  <div className="ed-top">
+                    <span className="dt" style={{ backgroundColor: "#4B4A48" }}></span><span className="dt" style={{ backgroundColor: "#4B4A48" }}></span><span className="dt" style={{ backgroundColor: "#4B4A48" }}></span>
+                    <div className="ed-tabs">
+                      <span className="ed-tab t0"><i style={{ backgroundColor: "#EFD395" }}></i>leads.py</span>
+                      <span className="ed-tab t1"><i style={{ backgroundColor: "#A4A4A4" }}></i>VoiceSale.jsx</span>
+                    </div>
+                  </div>
+                  <div className="ed-side" aria-hidden="true">
+                    <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"></path></svg>soban/</p>
+                    <p className="in1">leads/</p>
+                    <p className="in2 cur">leads.py</p>
+                    <p className="in2">scoring.py</p>
+                    <p className="in1">boldukan/</p>
+                    <p className="in2">VoiceSale.jsx</p>
+                    <p className="in1">learnova/</p>
+                    <p className="in1">swaari/</p>
+                    <p className="in1">README.md</p>
+                  </div>
+                  <div className="ed-body" aria-hidden="true">
+                    <div className="code c0">
+                      <span className="ln"><span className="tx"><span className="k">from</span> fastapi <span className="k">import</span> APIRouter, Depends</span></span>
+                      <span className="ln"><span className="tx"><span className="k">from</span> .scoring <span className="k">import</span> <span className="f">score_lead</span></span></span>
+                      <span className="ln"><span className="tx"> </span></span>
+                      <span className="ln"><span className="tx">router = <span className="t">APIRouter</span>(prefix=<span className="s">"/leads"</span>)</span></span>
+                      <span className="ln"><span className="tx"> </span></span>
+                      <span className="ln"><span className="tx"><span className="f">@router.get</span>(<span className="s">"/hot"</span>)</span></span>
+                      <span className="ln"><span className="tx"><span className="k">async def</span> <span className="f">hot_leads</span>(limit: <span className="t">int</span> = <span className="n">20</span>, db=<span className="t">Depends</span>(session)):</span></span>
+                      <span className="ln"><span className="tx">    leads = <span className="k">await</span> db.<span className="f">fetch_recent</span>(limit)</span></span>
+                      <span className="ln"><span className="tx">    ranked = <span className="f">sorted</span>(leads, key=score_lead, reverse=<span className="k">True</span>)</span></span>
+                      <span className="ln"><span className="tx">    <span className="k">return</span> [l <span className="k">for</span> l <span className="k">in</span> ranked <span className="k">if</span> l.score &gt; <span className="n">0.8</span>]</span></span>
+                      <span className="ln"><span className="tx"> </span></span>
+                      <span className="ln"><span className="tx"><span className="c"># 4 platforms scraped · hours of search → minutes</span></span></span>
+                    </div>
+                    <div className="code c1">
+                      <span className="ln"><span className="tx"><span className="k">export default function</span> <span className="f">VoiceSale</span>({'{'} note {'}'}) {'{'}</span></span>
+                      <span className="ln"><span className="tx">  <span className="k">const</span> {'{'} text {'}'} = <span className="f">useTranscribe</span>(note, <span className="s">"ur-PK"</span>);</span></span>
+                      <span className="ln"><span className="tx">  <span className="k">const</span> sale = <span className="f">parseSale</span>(text);</span></span>
+                      <span className="ln"><span className="tx"> </span></span>
+                      <span className="ln"><span className="tx">  <span className="k">return</span> (</span></span>
+                      <span className="ln"><span className="tx">    &lt;<span className="t">Card</span> title=<span className="s">"Naya sale"</span>&gt;</span></span>
+                      <span className="ln"><span className="tx">      &lt;<span className="t">Line</span> item={'{'}sale.item{'}'} qty={'{'}sale.qty{'}'} /&gt;</span></span>
+                      <span className="ln"><span className="tx">      &lt;<span className="t">Total</span> amount={'{'}sale.total{'}'} /&gt;</span></span>
+                      <span className="ln"><span className="tx">      &lt;<span className="t">Confirm</span> onYes={'{'}() =&gt; <span className="f">logSale</span>(sale){'}'} /&gt;</span></span>
+                      <span className="ln"><span className="tx">    &lt;/<span className="t">Card</span>&gt;</span></span>
+                      <span className="ln"><span className="tx">  );</span></span>
+                      <span className="ln"><span className="tx">{'}'}</span></span>
+                    </div>
+                  </div>
+                  <div className="ed-bar" aria-hidden="true"><span><span>⎇ main</span><span>✓ 0 problems</span></span><span><span>UTF-8</span><span>Ln 12</span></span></div>
+                </div>
               </div>
+              <div className="deck" aria-hidden="true"></div>
             </div>
 
-            {/* Info pill */}
-            <div
-              className="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-card border border-border rounded-xl 
-                         px-5 py-3 text-sm text-muted whitespace-nowrap shadow-xl"
-            >
-              <strong className="block text-text text-base font-semibold mb-0.5">Java Spring Boot</strong>
-              Full Stack Developer
+            <div className="plant" aria-hidden="true">
+              <svg className="px" viewBox="0 0 8 11"><g className="leaf"><path fill="#3FA34D" d="M3 0h1v1h-1zM2 1h2v1h-2zM4 2h2v1h-2zM1 3h2v1h-2zM3 1h1v6h-1zM5 4h2v1h-2zM0 5h3v1h-3z"></path><path fill="#2E7D3A" d="M2 2h1v1h-1zM5 3h1v1h-1zM1 4h1v1h-1z"></path></g><path fill="#A4502F" d="M1 7h6v1h-6z"></path><path fill="#C2643F" d="M2 8h4v3h-4z"></path></svg>
+            </div>
+            <div className="mug" aria-hidden="true">
+              <svg className="px" viewBox="0 0 10 12"><g className="steam" fill="#94A1B3"><rect x="2" y="0" width="1" height="2"></rect><rect x="4" y="1" width="1" height="2"></rect><rect x="6" y="0" width="1" height="2"></rect></g><path fill="#E9E7E2" d="M0 4h7v7h-7z"></path><path fill="#5A3A22" d="M1 4h5v1h-5z"></path><path fill="#E9E7E2" d="M7 5h2v1h-2zM8 6h1v2h-1zM7 8h2v1h-2z"></path><path fill="#EFD395" d="M2 6h3v2h-3z"></path><path fill="#C9C5BC" d="M0 10h7v1h-7z"></path></svg>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <style>{`
-        @keyframes orbFloat {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -40px) scale(1.05); }
-          66% { transform: translate(-20px, 20px) scale(0.97); }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.3; transform: scale(0.7); }
-        }
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.8s ease both;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-content > * {
-          animation: fadeIn 0.7s ease both;
-        }
-        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
-        .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
-        .hero-content > *:nth-child(6) { animation-delay: 0.6s; }
-      `}</style>
-    </section>
+  
+    </>
   );
 }
