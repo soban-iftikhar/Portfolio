@@ -207,11 +207,38 @@ export const skills = [
   },
 ];
 
+export const experiences = [
+  {
+    role: "AI/ML Intern",
+    company: "Decimal Solution",
+    period: "June 2026 — August 2026 · Islamabad, Pakistan",
+    skills: ["Python", "FastAPI", "Next.js", "Django"],
+    points: [
+      "Developed backend services and RESTful APIs using Python and FastAPI for machine learning and automation workflows.",
+      "Built data processing pipelines and integrated ML models with modern full-stack architectures including Next.js and Django.",
+      "Collaborated with cross-functional engineering teams to implement and test intelligent automation features for real-world applications.",
+      "Participated in active code reviews, performance optimizations, and agile sprint cycles under senior engineering mentorship.",
+    ],
+  },
+  {
+    role: "Full-Stack Developer Intern",
+    company: "Decimal Solutions",
+    period: "July 2025 — September 2025 · Islamabad, Pakistan",
+    skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    points: [
+      "Built and deployed full-stack web applications using the MERN stack, focusing on scalable system architecture and clean code.",
+      "Designed RESTful APIs and integrated them with responsive React frontends to ensure smooth data flow and system performance.",
+      "Ran real-time debugging and managed professional version control workflows under senior mentorship to deliver reliable software.",
+      "Worked on end-to-end development tasks, prioritizing long-term maintainability and performance optimization for every project.",
+    ],
+  },
+];
+
 export const certifications = [
   {
     title: "Alibaba Cloud AI Hackathon - National Finalist",
     issuer: "Alibaba Cloud & COGNIX",
-    date: "Oct 24, 2026",
+    date: "Oct 2026",
     badge: "ALIBABA",
     badgeType: "alibaba",
     img: "/certificates/c5.jpg",
@@ -222,7 +249,7 @@ export const certifications = [
   {
     title: "Alibaba Cloud AI Hackathon - Regional Evaluation",
     issuer: "Alibaba Cloud & COGNIX",
-    date: "Oct 11, 2026",
+    date: "Oct 2026",
     badge: "ALIBABA",
     badgeType: "alibaba",
     img: "/certificates/c4.jpg",
@@ -233,7 +260,7 @@ export const certifications = [
   {
     title: "Foundations of Project Management",
     issuer: "Google (Coursera)",
-    date: "Oct 26, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c6.png",
@@ -244,7 +271,7 @@ export const certifications = [
   {
     title: "Project Initiation: Starting a Successful Project",
     issuer: "Google (Coursera)",
-    date: "Oct 26, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c7.png",
@@ -255,7 +282,7 @@ export const certifications = [
   {
     title: "Project Planning: Putting It All Together",
     issuer: "Google (Coursera)",
-    date: "Oct 26, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c8.png",
@@ -266,7 +293,7 @@ export const certifications = [
   {
     title: "Project Execution: Running the Project",
     issuer: "Google (Coursera)",
-    date: "Oct 31, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c9.png",
@@ -277,7 +304,7 @@ export const certifications = [
   {
     title: "Agile Project Management",
     issuer: "Google (Coursera)",
-    date: "Oct 31, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c10.png",
@@ -288,7 +315,7 @@ export const certifications = [
   {
     title: "Capstone: Applying Project Management in the Real World",
     issuer: "Google (Coursera)",
-    date: "Oct 31, 2026",
+    date: "Oct 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c11.png",
@@ -299,7 +326,7 @@ export const certifications = [
   {
     title: "Accelerate Your Job Search with AI",
     issuer: "Google (Coursera)",
-    date: "Nov 1, 2026",
+    date: "Nov 2026",
     badge: "GOOGLE",
     badgeType: "google",
     img: "/certificates/c12.png",
@@ -310,7 +337,7 @@ export const certifications = [
   {
     title: "JavaScript Essentials 1",
     issuer: "Cisco Networking Academy",
-    date: "Feb 15, 2025",
+    date: "Feb 2025",
     badge: "CISCO",
     badgeType: "cisco",
     img: "/certificates/c1.png",
@@ -321,7 +348,7 @@ export const certifications = [
   {
     title: "JavaScript Essentials 2",
     issuer: "Cisco Networking Academy",
-    date: "Mar 6, 2025",
+    date: "Mar 2025",
     badge: "CISCO",
     badgeType: "cisco",
     img: "/certificates/c2.png",
@@ -332,7 +359,7 @@ export const certifications = [
   {
     title: "Intro to SQL",
     issuer: "Kaggle Learn",
-    date: "May 7, 2025",
+    date: "May 2025",
     badge: "KGL",
     badgeType: "kaggle",
     img: "/certificates/c3.png",
